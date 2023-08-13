@@ -13,8 +13,12 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Terminal from '@mui/icons-material/Terminal';
 
-const pages = ['TIC TAC TOE', 'COLOUR MANIA', 'HANGMAN'];
-const settings = ['About',  'Education', 'Work', 'Contact'];
+import {
+  Link,
+} from 'react-router-dom';
+
+const pages = ['hangman', 'colour mania', 'tictactoe'];
+const settings = ['about',  'education', 'work', 'contact'];
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -85,10 +89,11 @@ function Navbar() {
               sx={{
                 display: { xs: 'block', md: 'none' },
               }}
-            >
-              {pages.map((page) => (
+
+              
+            >{pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Link to={`/${page.split(' ').join('')}`} style={{color: 'inherit', textDecoration: 'none'}}><Typography textAlign="center">{page}</Typography></Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -113,13 +118,13 @@ function Navbar() {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button
+              <Link to={`/${page.split(' ').join('')}`} style={{textDecoration: 'none'}}><Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ paddingLeft: '30px', paddingRight: '30', my: 2, color: 'white', display: 'block' }}
               >
                 {page}
-              </Button>
+              </Button></Link>
             ))}
           </Box>
 
@@ -146,9 +151,9 @@ function Navbar() {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <Link to={`/${setting}`} style={{color: 'inherit', textDecoration: 'none'}}><MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
+                </MenuItem></Link>
               ))}
             </Menu>
           </Box>

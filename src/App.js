@@ -15,7 +15,6 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  Link,
 } from 'react-router-dom';
 
 import { createTheme, ThemeProvider } from '@mui/material';

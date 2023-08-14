@@ -90,7 +90,7 @@ const Hangman = () => {
                     <DisplayWord hiddenWord={hiddenWord} correctGuesses={correctGuesses} />
                     <SvgFigure wrongGuesses={wrongGuesses} />
                     <IncorrectGuesses wrongGuesses={wrongGuesses} />
-                    <ColorButton onClick={resetGame} variant="outlined">RESTART GAME</ColorButton>
+                    <ColorButton onClick={resetGame} variant="outlined">RESET</ColorButton>
                 </>
             }
         </div>

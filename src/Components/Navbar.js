@@ -14,7 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Terminal from '@mui/icons-material/Terminal';
 
 import {
-  Link,
+  Link
 } from 'react-router-dom';
 
 const pages = ['hangman', 'colour mania', 'tictactoe'];

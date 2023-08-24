@@ -1,7 +1,5 @@
 import React from 'react';
 // import { useNavigate } from 'react-router-dom';
-import Button from '@mui/material/Button';
-import { styled } from '@mui/material/styles';
 
 import GameWonPage from './HangmanComponents/GameWonPage';
 import GameLostPage from './HangmanComponents/GameLostPage';
@@ -9,16 +7,7 @@ import Header from './HangmanComponents/Header';
 import DisplayWord from './HangmanComponents/DisplayWord';
 import SvgFigure from './HangmanComponents/SvgFigure';
 import IncorrectGuesses from './HangmanComponents/IncorrectGuesses';
-
-const ColorButton = styled(Button)(({ theme }) => ({
-    color: '#051e39',
-    backgroundColor: '#c5e0ff',
-    borderColor: '#051e39',
-    '&:hover': {
-      backgroundColor: '#051e39',
-      color: '#c5e0ff',
-    },
-}));
+import ColorButton from './ColorButton';
 
 const words = [
     'developer', 
@@ -29,7 +18,6 @@ const words = [
     'artificial intelligence', 
     'database systems',
     'frameworks',
-
 ]
 
 const Hangman = () => {
@@ -76,7 +64,7 @@ const Hangman = () => {
     }
 
     return (
-        <div className="hangman-container">
+        <div className="game-container">
             <h1>HANGMAN</h1>
             {gameStatus() === 'won' &&
                 <GameWonPage resetGame={resetGame} ColorButton={ColorButton} />
@@ -90,7 +78,7 @@ const Hangman = () => {
                     <DisplayWord hiddenWord={hiddenWord} correctGuesses={correctGuesses} />
                     <SvgFigure wrongGuesses={wrongGuesses} />
                     <IncorrectGuesses wrongGuesses={wrongGuesses} />
-                    <ColorButton onClick={resetGame} variant="outlined">RESTART GAME</ColorButton>
+                    <ColorButton onClick={resetGame} variant="outlined">RESTART</ColorButton>
                 </>
             }
         </div>

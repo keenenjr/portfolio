@@ -1,5 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
 
 import Home from './Components/Home';
 import Navbar from './Components/Navbar';
@@ -27,6 +27,18 @@ const theme = createTheme({
   },});
 
 function App() {
+  const [viewport, setViewport] = React.useState({width: window.innerWidth, height: window.innerHeight}) 
+
+  React.useEffect(() => {
+    const updateViewport = () => {
+      setViewport({width: window.innerWidth, height: window.innerHeight})
+    }
+    window.addEventListener('resize', updateViewport)
+    return (() => {
+      window.removeEventListener('resize', updateViewport)
+    })
+  })
+
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -35,7 +47,7 @@ function App() {
           <Routes>
             <Route path='' element={<Home />}/>
             <Route path='/tictactoe' element={<TicTacToe />} />
-            <Route path='/colourmania' element={<ColourMania />} />
+            <Route path='/colourmania' element={<ColourMania viewport={viewport}/>} />
             <Route path='/hangman' element={<Hangman />} />
             <Route path='/about' element={<About />} />
             <Route path='/education' element={<Education />} />

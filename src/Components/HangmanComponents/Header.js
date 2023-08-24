@@ -3,7 +3,7 @@ import React from 'react'
 const Header = () => {
   return (
     <>
-      <div className="hangman-header">
+      <div className="game-header">
         <div>Find the secret word or phrase.</div>
         <div>Topic: Computer Science!</div>
         <div>Enter one letter at a time.</div>
